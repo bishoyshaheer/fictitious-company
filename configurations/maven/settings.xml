@@ -1,0 +1,34 @@
+<settings>                                                                                                                    
+<!-- <proxies>
+  <proxy>
+    <active>true</active> 
+    <protocol>http</protocol> 
+    <host>proxy.fc.com</host> 
+    <nonProxyHosts>fc.com</nonProxyHosts> 
+  </proxy> 
+</proxies> -->
+  <servers> 
+ <server>
+    <id>maven.oracle.com</id>
+    <username>bishoy.shaheer@gmail.com</username>
+    <password>BeshoyDavid9</password>
+    <configuration>
+      <basicAuthScope>
+        <host>ANY</host>
+        <port>ANY</port>
+        <realm>OAM 11g</realm>
+      </basicAuthScope>
+      <httpConfiguration>
+        <all>
+          <params>
+            <property>
+              <name>http.protocol.allow-circular-redirects</name>
+              <value>%b,true</value>
+            </property>
+          </params>
+        </all>
+      </httpConfiguration>
+    </configuration>
+  </server>
+  </servers> 
+</settings> 
