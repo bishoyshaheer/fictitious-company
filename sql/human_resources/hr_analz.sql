@@ -39,3 +39,4 @@ EXECUTE dbms_stats.gather_schema_stats( -
         block_sample => TRUE            );
 
 
+commit;

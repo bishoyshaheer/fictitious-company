@@ -97,36 +97,42 @@ ALTER SESSION SET NLS_TERRITORY=America;
 -- create tables, sequences and constraint
 --
 
-@?/demo/schema/human_resources/hr_cre
+@@hr_cre.sql
 
 -- 
 -- populate tables
 --
 
-@?/demo/schema/human_resources/hr_popul
+@@hr_popul.sql
 
 --
 -- create indexes
 --
 
-@?/demo/schema/human_resources/hr_idx
+@@hr_idx.sql
 
 --
 -- create procedural objects
 --
 
-@?/demo/schema/human_resources/hr_code
+@@hr_code.sql
 
 --
 -- add comments to tables and columns
 --
 
-@?/demo/schema/human_resources/hr_comnt
+@@hr_comnt.sql
 
 --
 -- gather schema statistics
 --
 
-@?/demo/schema/human_resources/hr_analz
+@@hr_analz.sql
+
+--
+-- update schema for fictitious-company project 
+--
+
+@@hr_fc_v_0.0.1.sql
 
 spool off
