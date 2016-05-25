@@ -23,7 +23,7 @@ public class EmployeeService {
 
 	public Employee login(EmployeeLogins employeeLogins) throws IncorrectUsernamePasswordException {
 		String password = employeeRepository.findPassword(employeeLogins.getUsername());
-		if (password.isEmpty()) throw new IncorrectUsernamePasswordException();
+		if (password==null) throw new IncorrectUsernamePasswordException();
 		if (!password.equals(employeeLogins.getPassword())) throw new IncorrectUsernamePasswordException();
 		return employeeRepository.findByUsername(employeeLogins.getUsername());
 	}

@@ -26,9 +26,9 @@ public class HrCoreApplication {
 	public String home(){
 		Employee e = er.findOne(Long.valueOf(199));
 		//test service
-		es.login(new EmployeeLogins("100", "password"));
+		e = es.login(new EmployeeLogins("NKOCHHAR", "password"));
 		
-		return "hello world\nbishoy is here8 " + e.getFirstName();
+		return "hello world\nbishoy is here   " + e.getFirstName()+e.getEmail();
 	}
 	
 	public static void main(String[] args) throws Exception {
