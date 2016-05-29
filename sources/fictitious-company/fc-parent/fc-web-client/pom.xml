@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.fc</groupId>
+    <artifactId>fc-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.fc.web</groupId>
+  <artifactId>fc-web-client</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>fc-web-client</name>
+  <packaging>jar</packaging>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <!-- NB! Set <version> to the latest released version of frontend-maven-plugin, like in README.md -->
+                <version>1.0</version>
+
+                <executions>
+
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <nodeVersion>v4.4.5</nodeVersion>
+                            <npmVersion>1.4.9</npmVersion>
+                            <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
+                            <nodeDownloadRoot>http://nodejs.org/dist/</nodeDownloadRoot>
+                            <npmDownloadRoot>http://nodejs.org/dist/npm/</npmDownloadRoot>
+                            <!-- optional: where to install node and npm. Defaults to the working directory -->
+                            <installDirectory>target</installDirectory>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <!-- Optional configuration which provides for running any npm command -->
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                    
+                    <execution>
+                        <id>bower install</id>
+                        <goals>
+                            <goal>bower</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>jspm install</id>
+                        <goals>
+                            <goal>jspm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>--version</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>grunt build</id>
+                        <goals>
+                            <goal>grunt</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>--no-color</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>javascript tests</id>
+                        <goals>
+                            <goal>karma</goal>
+                        </goals>
+                        <configuration>
+                            <karmaConfPath>src/test/resources/javascript/karma.conf.ci.js</karmaConfPath>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
