@@ -11,7 +11,7 @@
   <artifactId>fc-web-client</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>fc-web-client</name>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
     <build>
         <plugins>
             <plugin>
@@ -27,15 +27,9 @@
                         <goals>
                             <goal>install-node-and-npm</goal>
                         </goals>
-                        <phase>generate-resources</phase>
                         <configuration>
-                            <nodeVersion>v4.4.5</nodeVersion>
-                            <npmVersion>1.4.9</npmVersion>
-                            <!-- optional: where to download node and npm from. Defaults to https://nodejs.org/dist/ -->
-                            <nodeDownloadRoot>http://nodejs.org/dist/</nodeDownloadRoot>
-                            <npmDownloadRoot>http://nodejs.org/dist/npm/</npmDownloadRoot>
-                            <!-- optional: where to install node and npm. Defaults to the working directory -->
-                            <installDirectory>target</installDirectory>
+                            <nodeVersion>v5.3.0</nodeVersion>
+                            <npmVersion>3.3.12</npmVersion>
                         </configuration>
                     </execution>
 
@@ -70,7 +64,7 @@
                         </configuration>
                     </execution>
 
-                    <execution>
+<!--                     <execution>
                         <id>jspm install</id>
                         <goals>
                             <goal>jspm</goal>
@@ -96,9 +90,9 @@
                             <goal>karma</goal>
                         </goals>
                         <configuration>
-                            <karmaConfPath>src/test/resources/javascript/karma.conf.ci.js</karmaConfPath>
+                            <karmaConfPath>src/test/javascript/karma.conf.ci.js</karmaConfPath>
                         </configuration>
-                    </execution>
+                    </execution> -->
 
                 </executions>
             </plugin>
