@@ -2,3 +2,6 @@ target
 node
 node_modules
 log.txt
+typings
+app/**/*.js
+app/**/*.js.map
