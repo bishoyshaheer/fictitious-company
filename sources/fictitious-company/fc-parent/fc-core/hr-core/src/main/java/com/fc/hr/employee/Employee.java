@@ -3,6 +3,8 @@ package com.fc.hr.employee;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fc.hr.department.Department;
 import com.fc.hr.job.Job;
 import com.fc.hr.job.JobHistory;
@@ -19,6 +21,7 @@ import java.util.List;
 @Entity
 @Table(name="EMPLOYEES")
 @NamedQuery(name="Employee.findAll", query="SELECT e FROM Employee e")
+@JsonFilter("premitivesAndObjectsIds")
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -50,29 +53,35 @@ public class Employee implements Serializable {
 	private BigDecimal salary;
 
 	//bi-directional many-to-one association to Department
+	@JsonIgnore
 	@OneToMany(mappedBy="employee")
 	private List<Department> departments;
 
 	//bi-directional many-to-one association to Department
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="DEPARTMENT_ID")
 	private Department department;
 
 	//bi-directional many-to-one association to Employee
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="MANAGER_ID")
 	private Employee employee;
 
 	//bi-directional many-to-one association to Employee
+	@JsonIgnore
 	@OneToMany(mappedBy="employee")
 	private List<Employee> employees;
 
 	//bi-directional many-to-one association to Job
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name="JOB_ID")
 	private Job job;
 
 	//bi-directional many-to-one association to JobHistory
+	@JsonIgnore
 	@OneToMany(mappedBy="employee")
 	private List<JobHistory> jobHistories;
 

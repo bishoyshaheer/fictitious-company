@@ -13,9 +13,9 @@ public class EmployeeLogins {
 	private final String username;
 	private final String password;
 
-	public EmployeeLogins(String username, String Password) {
+	public EmployeeLogins(String username, String password) {
 		this.username = username;
-		this.password = Password;
+		this.password = password;
 	}
 	
 	public String getUsername() {
