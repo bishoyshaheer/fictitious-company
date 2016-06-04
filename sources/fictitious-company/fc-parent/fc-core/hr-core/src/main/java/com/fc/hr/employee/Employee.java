@@ -53,35 +53,35 @@ public class Employee implements Serializable {
 	private BigDecimal salary;
 
 	//bi-directional many-to-one association to Department
-	@JsonIgnore
+	
 	@OneToMany(mappedBy="employee")
 	private List<Department> departments;
 
 	//bi-directional many-to-one association to Department
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="DEPARTMENT_ID")
 	private Department department;
 
 	//bi-directional many-to-one association to Employee
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="MANAGER_ID")
 	private Employee employee;
 
 	//bi-directional many-to-one association to Employee
-	@JsonIgnore
+	
 	@OneToMany(mappedBy="employee")
 	private List<Employee> employees;
 
 	//bi-directional many-to-one association to Job
-	@JsonIgnore
+	
 	@ManyToOne
 	@JoinColumn(name="JOB_ID")
 	private Job job;
 
 	//bi-directional many-to-one association to JobHistory
-	@JsonIgnore
+	
 	@OneToMany(mappedBy="employee")
 	private List<JobHistory> jobHistories;
 
