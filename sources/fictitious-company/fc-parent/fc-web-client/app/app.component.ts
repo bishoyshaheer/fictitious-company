@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 
 @Component({
   selector: 'fc-app',
-  template:  `Loading...`,
+  template:  `<router-outlet></router-outlet>`,
   directives: [ROUTER_DIRECTIVES],
   providers: [
     ROUTER_PROVIDERS
@@ -16,6 +16,10 @@ import { LoginComponent } from './components/login/login.component';
     component: LoginComponent
   }
 ])
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Fictitious Company';
+  constructor(private router:Router){}
+  ngOnInit(){
+    this.router.navigateByUrl('/login');
+  }
 }

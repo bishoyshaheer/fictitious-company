@@ -12,13 +12,17 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var login_component_1 = require('./components/login/login.component');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(router) {
+        this.router = router;
         this.title = 'Fictitious Company';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.router.navigateByUrl('/login');
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'fc-app',
-            template: "Loading...",
+            template: "<router-outlet></router-outlet>",
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [
                 router_1.ROUTER_PROVIDERS
@@ -30,7 +34,7 @@ var AppComponent = (function () {
                 component: login_component_1.LoginComponent
             }
         ]), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());
