@@ -45,7 +45,7 @@
 	      <artifactId>ojdbc7</artifactId>
 	    </dependency>
 	</dependencies>
-	
+	<!-- 
 	<build>
 		<plugins>
 			<plugin>
@@ -54,5 +54,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	 -->
 
 </project>

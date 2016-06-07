@@ -3,6 +3,7 @@ package com.fc.hr.employee.support;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fc.hr.department.support.DepartmentRepository;
 import com.fc.hr.employee.Employee;
 import com.fc.hr.employee.EmployeeLogins;
 import com.fc.hr.employee.IncorrectUsernamePasswordException;
@@ -17,7 +18,7 @@ public class EmployeeService {
 	private final EmployeeRepository employeeRepository;
 	
 	@Autowired
-	public EmployeeService(EmployeeRepository employeeRepository) {
+	public EmployeeService(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
 		this.employeeRepository = employeeRepository;
 	}
 

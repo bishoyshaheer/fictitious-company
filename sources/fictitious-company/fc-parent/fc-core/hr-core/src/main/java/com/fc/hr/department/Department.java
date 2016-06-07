@@ -3,6 +3,10 @@ package com.fc.hr.department;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fc.hr.employee.Employee;
 import com.fc.hr.job.JobHistory;
 import com.fc.hr.location.Location;
@@ -17,6 +21,8 @@ import java.util.List;
 @Entity
 @Table(name="DEPARTMENTS")
 @NamedQuery(name="Department.findAll", query="SELECT d FROM Department d")
+//@JsonFilter("premitivesAndObjectsIds")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="departmentId")
 public class Department implements Serializable {
 	private static final long serialVersionUID = 1L;
 

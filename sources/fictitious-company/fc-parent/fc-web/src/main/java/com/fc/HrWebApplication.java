@@ -23,8 +23,8 @@ public class HrWebApplication {
 	@Autowired
 	EmployeeService es;
 	
-	@Autowired
-	ResourceProperties rp;
+//	@Autowired
+//	ResourceProperties rp;
 //	
 	@RequestMapping("/bisho")
 	public String home(){
@@ -32,7 +32,7 @@ public class HrWebApplication {
 		//test service
 		e = es.login(new EmployeeLogins("100", "password"));
 		
-		rp.getStaticLocations();
+//		rp.getStaticLocations();
 		
 		return "hello world\nbishoy is here   " + e.getFirstName()+e.getEmail();
 	}

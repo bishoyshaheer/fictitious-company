@@ -4,7 +4,9 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fc.hr.department.Department;
 import com.fc.hr.job.Job;
 import com.fc.hr.job.JobHistory;
@@ -21,7 +23,8 @@ import java.util.List;
 @Entity
 @Table(name="EMPLOYEES")
 @NamedQuery(name="Employee.findAll", query="SELECT e FROM Employee e")
-@JsonFilter("premitivesAndObjectsIds")
+//@JsonFilter("premitivesAndObjectsIds")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="employeeId")
 public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 

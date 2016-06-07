@@ -3,6 +3,8 @@ package com.fc.hr.job;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fc.hr.department.Department;
 import com.fc.hr.employee.Employee;
 
@@ -16,6 +18,7 @@ import java.util.Date;
 @Entity
 @Table(name="JOB_HISTORY")
 @NamedQuery(name="JobHistory.findAll", query="SELECT j FROM JobHistory j")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class JobHistory implements Serializable {
 	private static final long serialVersionUID = 1L;
 

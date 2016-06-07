@@ -3,6 +3,9 @@ package com.fc.hr.location;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.List;
 
 
@@ -13,6 +16,7 @@ import java.util.List;
 @Entity
 @Table(name="REGIONS")
 @NamedQuery(name="Region.findAll", query="SELECT r FROM Region r")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="regionId")
 public class Region implements Serializable {
 	private static final long serialVersionUID = 1L;
 

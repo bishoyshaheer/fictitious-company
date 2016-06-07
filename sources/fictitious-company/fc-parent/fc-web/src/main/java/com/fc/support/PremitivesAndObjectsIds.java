@@ -3,7 +3,6 @@
  */
 package com.fc.support;
 
-import java.io.Console;
 import java.util.Date;
 
 import javax.persistence.EntityManagerFactory;
@@ -50,7 +49,7 @@ public class PremitivesAndObjectsIds {
 				} 
 				else if (!(property instanceof Iterable<?>)){
 					Object id = entityManagerFactory.getPersistenceUnitUtil().getIdentifier(property);
-					writer.serializeAsOmittedField(id, jgen, provider);
+					jgen.writeStringField(writer.getName(), id.toString());
 				}
 			}
 		});

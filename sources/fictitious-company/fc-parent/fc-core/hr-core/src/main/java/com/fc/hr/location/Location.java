@@ -3,6 +3,8 @@ package com.fc.hr.location;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fc.hr.department.Department;
 
 import java.util.List;
@@ -15,6 +17,7 @@ import java.util.List;
 @Entity
 @Table(name="LOCATIONS")
 @NamedQuery(name="Location.findAll", query="SELECT l FROM Location l")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="locationId")
 public class Location implements Serializable {
 	private static final long serialVersionUID = 1L;
 

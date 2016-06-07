@@ -3,6 +3,8 @@ package com.fc.hr.job;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fc.hr.employee.Employee;
 
 import java.math.BigDecimal;
@@ -16,6 +18,7 @@ import java.util.List;
 @Entity
 @Table(name="JOBS")
 @NamedQuery(name="Job.findAll", query="SELECT j FROM Job j")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="jobId")
 public class Job implements Serializable {
 	private static final long serialVersionUID = 1L;
 
