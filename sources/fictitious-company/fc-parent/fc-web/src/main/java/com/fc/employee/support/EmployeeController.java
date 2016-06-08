@@ -40,7 +40,7 @@ public class EmployeeController {
 	}
 	
 	@RequestMapping(path="/login/{password}",method=RequestMethod.GET)
-	public String login(@PathVariable String username, @PathVariable String password){
+	public Employee login(@PathVariable String username, @PathVariable String password){
 		Employee employee = null;
 		try {
 			employee = employeeService.login(new EmployeeLogins(username, password));
@@ -48,12 +48,12 @@ public class EmployeeController {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		try {
-			return new ObjectMapper().writer(premitivesAndObjectsIds.filters).writeValueAsString(employee);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
+//		try {
+//			return new ObjectMapper().writer(premitivesAndObjectsIds.filters).writeValueAsString(employee);
+//		} catch (JsonProcessingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		return employee;
 	}
 }
