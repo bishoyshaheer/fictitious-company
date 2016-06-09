@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var login_component_1 = require('./components/login/login.component');
+var layout_component_1 = require('./components/layout/layout.component');
 var AppComponent = (function () {
     function AppComponent(router) {
         this.router = router;
@@ -32,6 +33,10 @@ var AppComponent = (function () {
             {
                 path: '/login',
                 component: login_component_1.LoginComponent
+            },
+            {
+                path: '/layout',
+                component: layout_component_1.LayoutComponent
             }
         ]), 
         __metadata('design:paramtypes', [router_1.Router])

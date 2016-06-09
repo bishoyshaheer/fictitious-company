@@ -17,19 +17,19 @@ export class LoginService {
     let url = `${userLogins.username}/${this.loginUrl}/${userLogins.password}`;
 
     return this.http.get(url)
-      .toPromise()
-      .then(this.extractData)
-      .catch(this.handleError);
+      .toPromise();
+      // .then(this.extractData)
+      // .catch(this.handleError);
   }
 
-  private extractData(res: Response) {
-    let body = res.json();
-    console.log(body.data);
-    return body.data || {};
-  }
+  // private extractData(res: Response) {
+  //   let body = res.json();
+  //   // console.log(body.data);
+  //   return body || {};
+  // }
 
-  private handleError(error: any) {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
-  }
+  // private handleError(error: any) {
+  //   // console.error('An error occurred', error);
+  //   return Promise.reject(error.message || error);
+  // }
 }

@@ -1,5 +1,6 @@
 import { Component  } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes } from '@angular/router';
+import { Router } from '@angular/router';
+import { Response } from '@angular/http';
 
 import { UserLogins } from './user-logins';
 import { LoginService } from './login.service';
@@ -9,25 +10,24 @@ import { LayoutComponent } from '../layout/layout.component';
   selector: 'fc-login',
   moduleId: module.id,
   templateUrl: './login.component.html',
-  providers: [ LoginService, ROUTER_PROVIDERS ],
-  directives: [ ROUTER_DIRECTIVES ]
+  // template: `sdafklnaklkdjgl;kkjadgl;h`,
+  // directives: [ROUTER_DIRECTIVES],
+  providers: [
+    // ROUTER_PROVIDERS, 
+    LoginService
+  ]
 })
-@Routes{[
-  {
-    path: '/layout',
-    component: LayoutComponent
-  }
-]}
 export class LoginComponent {
-	userLogins: UserLogins = {username:'',password:''};
+  userLogins: UserLogins = { username: '110', password: 'password' };
 
-	constructor(private loginService: LoginService, private router: Router){}
+  constructor(private loginService: LoginService, private router: Router) { 
+  }
 
-	clicked(event, userLogin) {
+  clicked(event, userLogin) {
     event.preventDefault();
-    var prom = this.loginService.getUser(userLogin).then(function (data){
-      this.router.navigateByUrl('/layout');
+      // this.router.navigateByUrl('/layout');
+    var prom = this.loginService.getUser(userLogin).then(function(data: Response) {
+      console.log(data);
     });
-    console.log(prom);
   }
 }
