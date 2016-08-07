@@ -11,35 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var login_component_1 = require('./components/login/login.component');
-var layout_component_1 = require('./components/layout/layout.component');
 var AppComponent = (function () {
-    function AppComponent(router) {
-        this.router = router;
+    function AppComponent() {
         this.title = 'Fictitious Company';
     }
-    AppComponent.prototype.ngOnInit = function () {
-        this.router.navigateByUrl('/login');
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'fc-app',
             template: "<router-outlet></router-outlet>",
             directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [
-                router_1.ROUTER_PROVIDERS
-            ]
-        }),
-        router_1.Routes([
-            {
-                path: '/login',
-                component: login_component_1.LoginComponent
-            },
-            {
-                path: '/layout',
-                component: layout_component_1.LayoutComponent
-            }
-        ]), 
-        __metadata('design:paramtypes', [router_1.Router])
+            precompile: [login_component_1.LoginComponent]
+        }), 
+        __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());

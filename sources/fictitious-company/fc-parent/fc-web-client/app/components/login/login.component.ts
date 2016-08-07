@@ -27,7 +27,7 @@ export class LoginComponent {
     event.preventDefault();
       // this.router.navigateByUrl('/layout');
     var prom = this.loginService.getUser(userLogin).then(function(data: Response) {
-      console.log(data);
+      console.log(data.json());
     });
   }
 }
